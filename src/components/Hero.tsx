@@ -46,9 +46,9 @@ const Hero = () => {
   }, []);
 
   return (
-    <section ref={heroRef} className="relative h-screen overflow-hidden pt-20" id="home">
+    <section ref={heroRef} className="relative min-h-screen overflow-hidden" id="home">
       {/* Animated Background */}
-      <motion.div style={{ y }} className="absolute inset-0 -top-20">
+      <motion.div style={{ y }} className="absolute inset-0">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentImage}
@@ -91,7 +91,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <motion.div style={{ opacity }} className="relative z-20 h-full flex items-center">
+      <motion.div style={{ opacity }} className="relative z-20 min-h-screen flex items-center pt-24 pb-12">
         <div className="container mx-auto px-6">
           <div className="max-w-5xl">
             <motion.div
