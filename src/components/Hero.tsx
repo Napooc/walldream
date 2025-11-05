@@ -122,10 +122,10 @@ const Hero = () => {
             }} transition={{
               duration: 0.8
             }}>
-                <h1 className="text-7xl font-extrabold text-white mb-6 leading-none md:text-6xl">
+                <h1 className="text-7xl font-extrabold text-white mb-6 leading-none md:text-5xl">
                   {heroImages[currentImage].title}
                 </h1>
-                <p className="text-3xl text-white/90 font-light mb-4 italic md:text-3xl">
+                <p className="text-3xl text-white/90 font-light mb-4 italic md:text-2xl">
                   {heroImages[currentImage].subtitle}
                 </p>
               </motion.div>
@@ -140,7 +140,7 @@ const Hero = () => {
           }} transition={{
             duration: 1,
             delay: 0.6
-          }} className="text-xl text-white/80 mb-12 max-w-3xl leading-relaxed md:text-xl">
+          }} className="text-xl text-white/80 mb-12 max-w-3xl leading-relaxed md:text-lg">
               Révolutionnez vos espaces avec notre technologie d'impression murale robotisée.
               Transformez chaque surface en une œuvre d'art immersive qui captive et inspire.
             </motion.p>
