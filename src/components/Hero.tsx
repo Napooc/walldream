@@ -46,9 +46,9 @@ const Hero = () => {
   }, []);
 
   return (
-    <section ref={heroRef} className="relative h-screen overflow-hidden" id="home">
+    <section ref={heroRef} className="relative h-screen overflow-hidden pt-20" id="home">
       {/* Animated Background */}
-      <motion.div style={{ y }} className="absolute inset-0">
+      <motion.div style={{ y }} className="absolute inset-0 -top-20">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentImage}

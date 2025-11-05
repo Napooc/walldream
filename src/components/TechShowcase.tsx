@@ -37,7 +37,7 @@ const TechShowcase = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-32 bg-primary text-primary-foreground relative overflow-hidden">
+    <section id="tech" ref={sectionRef} className="py-32 bg-primary text-primary-foreground relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-secondary rounded-full blur-3xl animate-pulse" />

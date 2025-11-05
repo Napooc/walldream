@@ -6,7 +6,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 
 const CTA = () => {
   return (
-    <section className="py-32 bg-gradient-to-b from-muted/30 to-background">
+    <section id="contact" className="py-32 bg-gradient-to-b from-muted/30 to-background">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div

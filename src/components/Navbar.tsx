@@ -59,10 +59,15 @@ const Navbar = () => {
               <motion.a
                 key={link.name}
                 href={link.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const target = document.querySelector(link.href);
+                  target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className={`text-sm font-medium transition-all hover:scale-110 relative group ${
+                className={`text-sm font-medium transition-all hover:scale-110 relative group cursor-pointer ${
                   isScrolled ? "text-foreground" : "text-white"
                 }`}
               >
@@ -109,7 +114,12 @@ const Navbar = () => {
               key={link.name}
               href={link.href}
               className="block py-3 text-foreground font-medium hover:text-secondary transition-colors border-b border-border/50"
-              onClick={() => setIsOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.href);
+                target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setIsOpen(false);
+              }}
             >
               {link.name}
             </a>
