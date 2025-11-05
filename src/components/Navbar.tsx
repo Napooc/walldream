@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
+import logo from "@/assets/logo.png";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -44,12 +45,20 @@ const Navbar = () => {
           opacity: 1,
           x: 0
         }} className="flex items-center gap-3">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary blur-xl opacity-50" />
-              <div className="relative w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-xl">W</span>
+            <motion.div 
+              className="relative group cursor-pointer"
+              whileHover={{ scale: 1.05, rotate: [0, -5, 5, 0] }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-300 animate-pulse" />
+              <div className="relative w-14 h-14 rounded-full overflow-hidden shadow-2xl ring-2 ring-white/20 group-hover:ring-white/40 transition-all">
+                <img 
+                  src={logo} 
+                  alt="Wall Dream Logo" 
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
+                />
               </div>
-            </div>
+            </motion.div>
             <span className={`text-2xl font-bold transition-colors ${isScrolled ? "text-primary" : "text-white"}`}>
               Wall Dream
             </span>
