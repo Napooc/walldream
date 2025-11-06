@@ -64,7 +64,7 @@ const ContactInfo = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto mb-12 sm:mb-16">
           {/* Email Card */}
           <motion.a
             href="mailto:walldream2025@gmail.com"
@@ -72,26 +72,26 @@ const ContactInfo = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="group h-full"
+            className="group h-full sm:col-span-2 lg:col-span-1"
           >
-            <div className="relative overflow-hidden bg-card rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-secondary/50 h-full flex flex-col">
+            <div className="relative overflow-hidden bg-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-secondary/50 h-full flex flex-col">
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
-              <div className="relative z-10">
+              <div className="relative z-10 flex-1 flex flex-col">
                 <motion.div
                   whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
                   transition={{ duration: 0.5 }}
-                  className="w-16 h-16 bg-gradient-to-br from-secondary to-accent rounded-2xl flex items-center justify-center mb-6 shadow-lg"
+                  className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-secondary to-accent rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 shadow-lg"
                 >
-                  <Mail className="w-8 h-8 text-white" />
+                  <Mail className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
                 </motion.div>
                 
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-secondary transition-colors">
+                <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 group-hover:text-secondary transition-colors">
                   Email
                 </h3>
-                <p className="text-muted-foreground mb-4">Envoyez-nous un message</p>
-                <p className="text-lg font-semibold text-secondary break-all">
+                <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4">Envoyez-nous un message</p>
+                <p className="text-sm sm:text-base font-semibold text-secondary break-all sm:whitespace-nowrap">
                   walldream2025@gmail.com
                 </p>
               </div>
@@ -107,23 +107,23 @@ const ContactInfo = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="group h-full"
           >
-            <div className="relative overflow-hidden bg-card rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-secondary/50 h-full flex flex-col">
+            <div className="relative overflow-hidden bg-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-secondary/50 h-full flex flex-col">
               <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               <div className="relative z-10">
                 <motion.div
                   whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
                   transition={{ duration: 0.5 }}
-                  className="w-16 h-16 bg-gradient-to-br from-secondary to-accent rounded-2xl flex items-center justify-center mb-6 shadow-lg"
+                  className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-secondary to-accent rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 shadow-lg"
                 >
-                  <Phone className="w-8 h-8 text-white" />
+                  <Phone className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
                 </motion.div>
                 
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-secondary transition-colors">
+                <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 group-hover:text-secondary transition-colors">
                   France
                 </h3>
-                <p className="text-muted-foreground mb-4">Appelez-nous en France</p>
-                <p className="text-lg font-semibold text-secondary">
+                <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4">Appelez-nous en France</p>
+                <p className="text-base sm:text-lg font-semibold text-secondary">
                   07 74 59 86 27
                 </p>
               </div>
@@ -139,23 +139,23 @@ const ContactInfo = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="group h-full"
           >
-            <div className="relative overflow-hidden bg-card rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-secondary/50 h-full flex flex-col">
+            <div className="relative overflow-hidden bg-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-secondary/50 h-full flex flex-col">
               <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               <div className="relative z-10">
                 <motion.div
                   whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
                   transition={{ duration: 0.5 }}
-                  className="w-16 h-16 bg-gradient-to-br from-secondary to-accent rounded-2xl flex items-center justify-center mb-6 shadow-lg"
+                  className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-secondary to-accent rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 shadow-lg"
                 >
-                  <Phone className="w-8 h-8 text-white" />
+                  <Phone className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
                 </motion.div>
                 
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-secondary transition-colors">
+                <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 group-hover:text-secondary transition-colors">
                   Suisse
                 </h3>
-                <p className="text-muted-foreground mb-4">Appelez-nous en Suisse</p>
-                <p className="text-lg font-semibold text-secondary">
+                <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4">Appelez-nous en Suisse</p>
+                <p className="text-base sm:text-lg font-semibold text-secondary">
                   +41 77 808 32 70
                 </p>
               </div>
@@ -174,7 +174,7 @@ const ContactInfo = () => {
           <Button
             onClick={() => setShowWhatsAppDialog(true)}
             size="lg"
-            className="group relative bg-gradient-to-r from-secondary via-accent to-secondary bg-[length:200%_100%] hover:bg-[position:100%_0] text-white text-xl px-12 py-8 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105"
+            className="group relative bg-gradient-to-r from-secondary via-accent to-secondary bg-[length:200%_100%] hover:bg-[position:100%_0] text-white text-base sm:text-lg md:text-xl px-8 sm:px-10 md:px-12 py-6 sm:py-7 md:py-8 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 w-full sm:w-auto"
           >
             <motion.div
               animate={{
@@ -187,11 +187,11 @@ const ContactInfo = () => {
               }}
               className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
             />
-            <MessageCircle className="w-7 h-7 mr-3" />
-            Contactez-nous sur WhatsApp
+            <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 mr-2 sm:mr-3" />
+            <span className="text-sm sm:text-base md:text-lg">Contactez-nous sur WhatsApp</span>
           </Button>
 
-          <p className="text-muted-foreground mt-6 text-lg">
+          <p className="text-muted-foreground mt-4 sm:mt-6 text-sm sm:text-base md:text-lg">
             Réponse rapide et personnalisée garantie
           </p>
         </motion.div>

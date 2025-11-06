@@ -32,14 +32,14 @@ const teamMembers = [{
   image: julienImg
 }];
 const TeamSection = () => {
-  return <section className="py-32 bg-gradient-to-b from-background via-muted/20 to-background relative overflow-hidden">
+  return <section id="equipe" className="py-20 sm:py-24 md:py-32 bg-gradient-to-b from-background via-muted/20 to-background relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-secondary rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent rounded-full blur-3xl" />
+        <div className="absolute top-20 left-10 w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 bg-secondary rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-accent rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div initial={{
         opacity: 0,
         y: 40
@@ -50,28 +50,28 @@ const TeamSection = () => {
         once: true
       }} transition={{
         duration: 0.8
-      }} className="text-center mb-20">
+      }} className="text-center mb-12 sm:mb-16 md:mb-20">
           <motion.div initial={{
           scale: 0
         }} whileInView={{
           scale: 1
         }} viewport={{
           once: true
-        }} className="inline-block mb-6">
-            <span className="text-secondary text-sm font-bold tracking-wider uppercase bg-secondary/10 px-6 py-3 rounded-full">
+        }} className="inline-block mb-4 sm:mb-6">
+            <span className="text-secondary text-xs sm:text-sm font-bold tracking-wider uppercase bg-secondary/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full">
               Notre Équipe
             </span>
           </motion.div>
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6">
             Les Talents Derrière
             <span className="block text-gradient-accent mt-2">Wall Dream</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
             Une équipe passionnée et dévouée à transformer vos espaces en œuvres d'art uniques
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {teamMembers.map((member, index) => <motion.div key={member.name} initial={{
           opacity: 0,
           y: 50
@@ -84,12 +84,12 @@ const TeamSection = () => {
           duration: 0.6,
           delay: index * 0.1
         }} className="group h-full">
-              <div className="relative overflow-hidden rounded-3xl bg-card shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col">
+              <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-card shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col">
                 {/* Gradient overlay on hover */}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
                 
                 {/* Image container with parallax effect */}
-                <div className="relative h-80 overflow-hidden">
+                <div className="relative h-64 sm:h-72 md:h-80 overflow-hidden">
                   <motion.img src={member.image} alt={member.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" whileHover={{
                 scale: 1.1
               }} />
@@ -105,13 +105,13 @@ const TeamSection = () => {
                 once: true
               }} transition={{
                 delay: 0.3 + index * 0.1
-              }} className="absolute top-6 right-6 w-12 h-12 bg-secondary/90 backdrop-blur-sm rounded-full flex items-center justify-center z-20">
-                    <Quote className="w-6 h-6 text-white" />
+              }} className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 bg-secondary/90 backdrop-blur-sm rounded-full flex items-center justify-center z-20">
+                    <Quote className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </motion.div>
                 </div>
 
                 {/* Content */}
-                <div className="relative z-20 p-8 flex-1 flex flex-col">
+                <div className="relative z-20 p-6 sm:p-8 flex-1 flex flex-col">
                   <motion.div initial={{
                 opacity: 0,
                 x: -20
@@ -123,10 +123,10 @@ const TeamSection = () => {
               }} transition={{
                 delay: 0.4 + index * 0.1
               }}>
-                    <h3 className="text-2xl font-bold mb-2 group-hover:text-secondary transition-colors">
+                    <h3 className="text-xl sm:text-2xl font-bold mb-2 group-hover:text-secondary transition-colors">
                       {member.name}
                     </h3>
-                    <p className="text-secondary font-semibold mb-4 text-sm uppercase tracking-wider">
+                    <p className="text-secondary font-semibold mb-3 sm:mb-4 text-xs sm:text-sm uppercase tracking-wider">
                       {member.role}
                     </p>
                   </motion.div>
@@ -140,7 +140,7 @@ const TeamSection = () => {
               }} transition={{
                 delay: 0.5 + index * 0.1
               }} className="relative flex-1">
-                    <div className="absolute -left-2 -top-2 text-6xl text-secondary/20 font-serif leading-none">
+                    <div className="absolute -left-1 -top-1 sm:-left-2 sm:-top-2 text-4xl sm:text-5xl md:text-6xl text-secondary/20 font-serif leading-none">
                       "
                     </div>
                     <p className="leading-relaxed pl-6 italic text-stone-400">

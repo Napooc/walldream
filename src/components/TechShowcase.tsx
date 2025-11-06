@@ -37,35 +37,35 @@ const TechShowcase = () => {
   ];
 
   return (
-    <section id="tech" ref={sectionRef} className="py-32 bg-primary text-primary-foreground relative overflow-hidden">
+    <section id="tech" ref={sectionRef} className="py-20 sm:py-24 md:py-32 bg-primary text-primary-foreground relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-secondary rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-accent rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute top-1/4 right-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-secondary rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 left-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-accent rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -60 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-block mb-6 px-6 py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20">
-              <span className="text-secondary font-semibold">TECHNOLOGIE DE POINTE</span>
+            <div className="inline-block mb-4 sm:mb-6 px-4 sm:px-6 py-2 sm:py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20">
+              <span className="text-secondary font-semibold text-xs sm:text-sm">TECHNOLOGIE DE POINTE</span>
             </div>
-            <h2 className="text-6xl md:text-7xl font-extrabold mb-8 leading-tight">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 sm:mb-8 leading-tight">
               Le Robot<br />
               <span className="text-secondary">Wall Dream</span>
             </h2>
-            <p className="text-xl text-primary-foreground/80 mb-12 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-primary-foreground/80 mb-8 sm:mb-10 md:mb-12 leading-relaxed">
               Une révolution technologique au service de votre créativité. Notre robot d'impression murale combine 
               intelligence artificielle, précision mécanique et qualité d'image exceptionnelle pour transformer 
               chaque surface en chef-d'œuvre.
             </p>
 
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {features.map((feature, index) => {
                 const Icon = feature.icon;
                 return (
@@ -75,16 +75,16 @@ const TechShowcase = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="flex gap-4 items-start group"
+                    className="flex gap-3 sm:gap-4 items-start group"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary/90 group-hover:scale-110 transition-all duration-300">
-                      <Icon className="w-6 h-6" />
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary/90 group-hover:scale-110 transition-all duration-300">
+                      <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <div>
-                      <h4 className="text-lg font-bold mb-1 group-hover:text-secondary transition-colors">
+                      <h4 className="text-base sm:text-lg font-bold mb-1 group-hover:text-secondary transition-colors">
                         {feature.title}
                       </h4>
-                      <p className="text-primary-foreground/70">
+                      <p className="text-sm sm:text-base text-primary-foreground/70">
                         {feature.description}
                       </p>
                     </div>
@@ -98,15 +98,15 @@ const TechShowcase = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="mt-12 grid grid-cols-3 gap-6"
+              className="mt-8 sm:mt-10 md:mt-12 grid grid-cols-3 gap-3 sm:gap-4 md:gap-6"
             >
               {[
                 { value: "99.9%", label: "Précision" },
                 { value: "50m²", label: "Surface/Jour" },
                 { value: "4K+", label: "Résolution" },
               ].map((stat, index) => (
-                <div key={index} className="text-center p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10">
-                  <div className="text-4xl font-bold text-secondary mb-2">{stat.value}</div>
+                <div key={index} className="text-center p-4 sm:p-5 md:p-6 bg-white/5 backdrop-blur-md rounded-xl sm:rounded-2xl border border-white/10">
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary mb-1 sm:mb-2">{stat.value}</div>
                   <div className="text-sm text-primary-foreground/70">{stat.label}</div>
                 </div>
               ))}

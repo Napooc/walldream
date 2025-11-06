@@ -5,6 +5,12 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 const CTA = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // Form submission logic can be added here
+    alert("Merci pour votre demande ! Nous vous contacterons bientôt.");
+  };
+
   return (
     <section id="contact" className="py-32 bg-gradient-to-b from-muted/30 to-background">
       <div className="container mx-auto px-6">
@@ -82,27 +88,28 @@ const CTA = () => {
             className="bg-card rounded-3xl p-8 shadow-xl"
           >
             <h3 className="text-2xl font-bold mb-6">Demander un Devis</h3>
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-sm font-medium mb-2">Nom complet</label>
-                <Input placeholder="Votre nom" className="rounded-xl" />
+                <Input placeholder="Votre nom" className="rounded-xl" required />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-2">Email</label>
-                <Input type="email" placeholder="votre@email.com" className="rounded-xl" />
+                <Input type="email" placeholder="votre@email.com" className="rounded-xl" required />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-2">Téléphone</label>
-                <Input type="tel" placeholder="+33 1 23 45 67 89" className="rounded-xl" />
+                <Input type="tel" placeholder="+33 1 23 45 67 89" className="rounded-xl" required />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-2">Décrivez votre projet</label>
                 <Textarea 
                   placeholder="Parlez-nous de votre projet d'impression murale..." 
                   className="rounded-xl min-h-32"
+                  required
                 />
               </div>
-              <Button className="w-full bg-secondary text-primary hover:bg-secondary/90 rounded-xl py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all">
+              <Button type="submit" className="w-full bg-secondary text-primary hover:bg-secondary/90 rounded-xl py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all">
                 Envoyer la demande
               </Button>
             </form>

@@ -1,7 +1,9 @@
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
+import { AnimatedText } from "@/components/ui/animated-underline-text-one";
 import { ArrowRight, Sparkles, Zap } from "lucide-react";
+import { TextEffect } from "@/components/ui/text-effect";
 import sushiImg from "@/assets/wall-dream-sushi.jpg";
 import pizzaImg from "@/assets/wall-dream-pizza.jpg";
 import nailsImg from "@/assets/wall-dream-nails.jpg";
@@ -10,17 +12,20 @@ const heroImages = [{
   src: sushiImg,
   alt: "Impression murale gastronomique haute définition",
   title: "L'Art Mural",
-  subtitle: "Qui Éveille Les Sens"
+  subtitle: "Qui Éveille Les Sens",
+  description: "Révolutionnez vos espaces avec notre technologie d'impression murale robotisée. Transformez chaque surface en une œuvre d'art immersive qui captive et inspire."
 }, {
   src: pizzaImg,
   alt: "Design mural contemporain pour restaurant",
   title: "Créez L'Extraordinaire",
-  subtitle: "Au-Delà De L'Imagination"
+  subtitle: "Au-Delà De L'Imagination",
+  description: "Donnez vie à vos idées les plus audacieuses grâce à notre expertise en design sur mesure. Chaque projet devient une expérience visuelle unique qui marque les esprits."
 }, {
   src: nailsImg,
   alt: "Impression murale élégante pour salon de beauté",
   title: "L'Élégance Visuelle",
-  subtitle: "Qui Fascine Et Inspire"
+  subtitle: "Qui Fascine Et Inspire",
+  description: "Élevez votre espace professionnel avec des créations murales d'exception. Une fusion parfaite entre innovation technologique et esthétique raffinée pour un impact durable."
 }];
 const Hero = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -39,6 +44,13 @@ const Hero = () => {
     }, 8000);
     return () => clearInterval(interval);
   }, []);
+
+  const scrollToSection = (href: string) => {
+    const target = document.querySelector(href);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
   return <section ref={heroRef} className="relative min-h-screen overflow-hidden" id="home">
       {/* Animated Background */}
       <motion.div style={{
@@ -66,18 +78,39 @@ const Hero = () => {
       </motion.div>
 
       {/* Floating particles */}
-      <div className="absolute inset-0 z-10">
-        {[...Array(20)].map((_, i) => <motion.div key={i} className="absolute w-1 h-1 bg-secondary rounded-full" initial={{
-        opacity: 0
-      }} animate={{
-        opacity: [0, 1, 0],
-        x: [Math.random() * window.innerWidth, Math.random() * window.innerWidth],
-        y: [Math.random() * window.innerHeight, Math.random() * window.innerHeight]
-      }} transition={{
-        duration: Math.random() * 10 + 10,
-        repeat: Infinity,
-        delay: Math.random() * 5
-      }} />)}
+      <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
+        {[...Array(20)].map((_, i) => {
+          // Use fixed values based on index to prevent random changes
+          const baseX = (i * 5) % 100;
+          const baseY = (i * 7) % 100;
+          const moveX = ((i % 5) * 50) - 100;
+          const moveY = ((i % 3) * 40) - 60;
+          const duration = 10 + (i % 5) * 2;
+          const delay = i * 0.3;
+          
+          return (
+            <motion.div 
+              key={i} 
+              className="absolute w-1 h-1 bg-secondary rounded-full" 
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: [0, 1, 0],
+                x: [0, moveX, 0],
+                y: [0, moveY, 0]
+              }} 
+              transition={{
+                duration,
+                repeat: Infinity,
+                delay,
+                ease: "easeInOut"
+              }}
+              style={{
+                left: `${baseX}%`,
+                top: `${baseY}%`,
+              }}
+            />
+          );
+        })}
       </div>
 
       {/* Content */}
@@ -125,28 +158,40 @@ const Hero = () => {
             }} transition={{
               duration: 0.8
             }}>
-                <h1 className="text-7xl font-extrabold text-white mb-6 leading-none md:text-5xl">
-                  {heroImages[currentImage].title}
-                </h1>
-                <p className="text-3xl text-white/90 font-light mb-4 italic md:text-2xl">
+                <AnimatedText
+                  text={heroImages[currentImage].title}
+                  textClassName="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-none tracking-tight"
+                  underlineClassName="text-secondary"
+                  underlinePath="M 0,10 Q 75,0 150,10 Q 225,20 300,10"
+                  underlineHoverPath="M 0,10 Q 75,20 150,10 Q 225,0 300,10"
+                  underlineDuration={1.2}
+                  className="mb-10"
+                />
+                <p className="text-xl sm:text-2xl md:text-3xl text-white/90 font-light mb-4 italic">
                   {heroImages[currentImage].subtitle}
                 </p>
               </motion.div>
             </AnimatePresence>
 
-            <motion.p initial={{
-            opacity: 0,
-            y: 30
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 1,
-            delay: 0.6
-          }} className="text-xl text-white/80 mb-12 max-w-3xl leading-relaxed md:text-lg">
-              Révolutionnez vos espaces avec notre technologie d'impression murale robotisée.
-              Transformez chaque surface en une œuvre d'art immersive qui captive et inspire.
-            </motion.p>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentImage}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.6 }}
+              >
+                <TextEffect
+                  per='word'
+                  as='p'
+                  preset='slide'
+                  delay={0.1}
+                  className="text-base sm:text-lg md:text-xl text-white/80 mb-8 sm:mb-10 md:mb-12 max-w-3xl leading-relaxed"
+                >
+                  {heroImages[currentImage].description}
+                </TextEffect>
+              </motion.div>
+            </AnimatePresence>
 
             <motion.div initial={{
             opacity: 0,
@@ -157,13 +202,22 @@ const Hero = () => {
           }} transition={{
             duration: 1,
             delay: 0.9
-          }} className="flex flex-col sm:flex-row gap-6">
-              <Button size="lg" className="group bg-gradient-to-r from-secondary via-accent to-secondary bg-[length:200%_100%] hover:bg-[position:100%_0] text-primary text-lg px-10 py-8 rounded-full shadow-2xl shadow-secondary/50 transition-all duration-500 hover:scale-105 hover:shadow-3xl">
-                <Zap className="mr-2 h-6 w-6 animate-pulse" />
+          }} className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+              <Button 
+                size="lg" 
+                onClick={() => scrollToSection('#services')}
+                className="group bg-gradient-to-r from-secondary via-accent to-secondary bg-[length:200%_100%] hover:bg-[position:100%_0] text-primary text-base sm:text-lg px-6 sm:px-8 md:px-10 py-6 sm:py-7 md:py-8 rounded-full shadow-2xl shadow-secondary/50 transition-all duration-500 hover:scale-105 hover:shadow-3xl w-full sm:w-auto"
+              >
+                <Zap className="mr-2 h-5 w-5 sm:h-6 sm:w-6 animate-pulse" />
                 Découvrir Nos Solutions
-                <ArrowRight className="ml-2 h-6 w-6 group-hover:translate-x-2 transition-transform" />
+                <ArrowRight className="ml-2 h-5 w-5 sm:h-6 sm:w-6 group-hover:translate-x-2 transition-transform" />
               </Button>
-              <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white hover:bg-white/20 hover:border-white/50 text-lg px-10 py-8 rounded-full transition-all duration-300 hover:scale-105">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                onClick={() => scrollToSection('#portfolio')}
+                className="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white hover:bg-white/20 hover:border-white/50 text-base sm:text-lg px-6 sm:px-8 md:px-10 py-6 sm:py-7 md:py-8 rounded-full transition-all duration-300 hover:scale-105 w-full sm:w-auto"
+              >
                 Voir Le Portfolio
               </Button>
             </motion.div>
@@ -178,7 +232,7 @@ const Hero = () => {
           }} transition={{
             duration: 1,
             delay: 1.2
-          }} className="mt-20 grid grid-cols-3 gap-8 max-w-2xl">
+          }} className="mt-12 sm:mt-16 md:mt-20 grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-2xl">
               {[{
               value: "500+",
               label: "Projets Réalisés"
@@ -196,10 +250,10 @@ const Hero = () => {
               }} transition={{
                 duration: 0.5,
                 delay: 1.4 + index * 0.1
-              }} className="text-4xl md:text-5xl font-bold text-gradient-accent mb-2">
+              }} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gradient-accent mb-1 sm:mb-2">
                     {stat.value}
                   </motion.div>
-                  <div className="text-white/70 text-sm">{stat.label}</div>
+                  <div className="text-white/70 text-xs sm:text-sm md:text-base uppercase tracking-wider">{stat.label}</div>
                 </div>)}
             </motion.div>
           </div>
@@ -223,7 +277,6 @@ const Hero = () => {
         duration: 2,
         repeat: Infinity
       }} className="flex flex-col items-center gap-2 text-white/70">
-          <span className="text-sm font-light">Explorez</span>
           <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
             <motion.div animate={{
             y: [0, 12, 0]

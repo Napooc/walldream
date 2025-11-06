@@ -21,11 +21,11 @@ const WhatsAppFloat = () => {
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.5, type: "spring" }}
-        className="fixed bottom-8 right-8 z-50"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 z-50"
       >
         <motion.button
           onClick={() => setShowOptions(!showOptions)}
-          className="relative w-16 h-16 bg-gradient-to-br from-[#25D366] to-[#128C7E] rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 flex items-center justify-center group"
+          className="relative w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-[#25D366] to-[#128C7E] rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 flex items-center justify-center group"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -48,9 +48,9 @@ const WhatsAppFloat = () => {
             transition={{ duration: 0.3 }}
           >
             {showOptions ? (
-              <X className="w-8 h-8 text-white relative z-10" />
+              <X className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white relative z-10" />
             ) : (
-              <MessageCircle className="w-8 h-8 text-white relative z-10" />
+              <MessageCircle className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white relative z-10" />
             )}
           </motion.div>
         </motion.button>
@@ -64,26 +64,26 @@ const WhatsAppFloat = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.8 }}
             transition={{ duration: 0.3 }}
-            className="fixed bottom-28 right-8 z-50 bg-card rounded-2xl shadow-2xl border-2 border-border/50 overflow-hidden"
+            className="fixed bottom-20 right-4 sm:bottom-24 sm:right-6 md:bottom-28 md:right-8 z-50 bg-card rounded-xl sm:rounded-2xl shadow-2xl border-2 border-border/50 overflow-hidden w-[calc(100vw-2rem)] sm:w-auto sm:min-w-[250px] max-w-[280px] sm:max-w-none"
           >
-            <div className="p-4 space-y-3 min-w-[250px]">
-              <p className="text-sm font-semibold text-center mb-2">
+            <div className="p-3 sm:p-4 space-y-2 sm:space-y-3">
+              <p className="text-xs sm:text-sm font-semibold text-center mb-2">
                 Choisissez votre pays
               </p>
               
               <Button
                 onClick={() => handleWhatsAppClick("france")}
-                className="w-full bg-gradient-to-r from-secondary to-accent hover:opacity-90 text-white rounded-xl py-6 text-base"
+                className="w-full bg-gradient-to-r from-secondary to-accent hover:opacity-90 text-white rounded-lg sm:rounded-xl py-4 sm:py-5 md:py-6 text-sm sm:text-base"
               >
-                <MessageCircle className="w-5 h-5 mr-2" />
+                <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 France
               </Button>
               
               <Button
                 onClick={() => handleWhatsAppClick("suisse")}
-                className="w-full bg-gradient-to-r from-secondary to-accent hover:opacity-90 text-white rounded-xl py-6 text-base"
+                className="w-full bg-gradient-to-r from-secondary to-accent hover:opacity-90 text-white rounded-lg sm:rounded-xl py-4 sm:py-5 md:py-6 text-sm sm:text-base"
               >
-                <MessageCircle className="w-5 h-5 mr-2" />
+                <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 Suisse
               </Button>
             </div>
