@@ -21,13 +21,13 @@ All colors MUST be HSL.
     --primary-foreground: 0 0% 100%;
     --primary-glow: 220 60% 30%;
 
-    --secondary: 35 100% 60%;
-    --secondary-foreground: 220 70% 15%;
+    --secondary: 320 100% 60%;
+    --secondary-foreground: 0 0% 100%;
 
     --muted: 220 20% 96%;
     --muted-foreground: 220 15% 45%;
 
-    --accent: 35 100% 60%;
+    --accent: 330 100% 65%;
     --accent-foreground: 220 70% 15%;
 
     --destructive: 0 84.2% 60.2%;
@@ -40,11 +40,11 @@ All colors MUST be HSL.
     --radius: 1rem;
 
     --gradient-primary: linear-gradient(135deg, hsl(220 70% 15%), hsl(220 60% 30%));
-    --gradient-accent: linear-gradient(135deg, hsl(35 100% 60%), hsl(35 100% 70%));
+    --gradient-accent: linear-gradient(135deg, hsl(320 100% 60%), hsl(330 100% 65%));
     --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 20% 98%));
     
     --shadow-elegant: 0 20px 60px -15px hsl(220 70% 15% / 0.3);
-    --shadow-glow: 0 0 60px hsl(35 100% 60% / 0.3);
+    --shadow-glow: 0 0 60px hsl(320 100% 60% / 0.4);
     
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -79,13 +79,13 @@ All colors MUST be HSL.
     --primary-foreground: 220 70% 15%;
     --primary-glow: 220 50% 40%;
 
-    --secondary: 35 100% 60%;
-    --secondary-foreground: 220 70% 15%;
+    --secondary: 320 100% 60%;
+    --secondary-foreground: 0 0% 100%;
 
     --muted: 220 40% 15%;
     --muted-foreground: 220 10% 65%;
 
-    --accent: 35 100% 60%;
+    --accent: 330 100% 65%;
     --accent-foreground: 220 70% 15%;
 
     --destructive: 0 62.8% 40%;
@@ -96,9 +96,9 @@ All colors MUST be HSL.
     --ring: 35 100% 60%;
     
     --gradient-primary: linear-gradient(135deg, hsl(220 70% 15%), hsl(220 60% 25%));
-    --gradient-accent: linear-gradient(135deg, hsl(35 100% 50%), hsl(35 100% 60%));
+    --gradient-accent: linear-gradient(135deg, hsl(320 100% 50%), hsl(330 100% 60%));
     --shadow-elegant: 0 20px 60px -15px hsl(0 0% 0% / 0.5);
-    --shadow-glow: 0 0 60px hsl(35 100% 60% / 0.4);
+    --shadow-glow: 0 0 60px hsl(320 100% 60% / 0.5);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
