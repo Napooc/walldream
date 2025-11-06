@@ -143,7 +143,7 @@ const TeamSection = () => {
                     <div className="absolute -left-2 -top-2 text-6xl text-secondary/20 font-serif leading-none">
                       "
                     </div>
-                    <p className="leading-relaxed pl-6 italic text-muted-foreground">
+                    <p className="leading-relaxed pl-6 italic text-stone-400">
                       {member.quote}
                     </p>
                   </motion.div>
