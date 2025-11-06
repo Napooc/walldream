@@ -3,7 +3,12 @@ import { Play, Sparkles } from "lucide-react";
 import { useState } from "react";
 
 const VideoShowcase = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentVideo, setCurrentVideo] = useState(0);
+  const videos = [
+    "/videos/video1.mp4",
+    "/videos/video2.mp4",
+    "/videos/video3.mp4",
+  ];
 
   return (
     <section className="py-32 bg-gradient-to-b from-primary via-primary-glow to-primary relative overflow-hidden">
@@ -58,14 +63,13 @@ const VideoShowcase = () => {
           </motion.div>
           
           <h2 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
-            Découvrez Nos
-            <span className="block bg-gradient-to-r from-secondary via-accent to-secondary bg-clip-text text-transparent mt-2">
-              Créations Exceptionnelles
+            <span className="block bg-gradient-to-r from-secondary via-accent to-secondary bg-clip-text text-transparent">
+              Nos Réalisations
             </span>
           </h2>
           
           <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-            Plongez dans l'univers de Wall Dream et explorez nos projets les plus innovants
+            Découvrez nos projets les plus innovants
           </p>
         </motion.div>
 
@@ -81,59 +85,36 @@ const VideoShowcase = () => {
             {/* Gradient border effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-secondary via-accent to-secondary p-1 rounded-3xl">
               <div className="w-full h-full bg-black rounded-3xl overflow-hidden">
-                {/* Placeholder for video */}
-                <div className="relative w-full h-full bg-gradient-to-br from-primary-glow to-primary flex items-center justify-center">
-                  {!isPlaying ? (
-                    <>
-                      {/* Play button overlay */}
-                      <motion.button
-                        onClick={() => setIsPlaying(true)}
-                        className="relative z-20"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <motion.div
-                          animate={{
-                            scale: [1, 1.2, 1],
-                            opacity: [0.5, 0.8, 0.5],
-                          }}
-                          transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                          }}
-                          className="absolute inset-0 bg-secondary rounded-full blur-2xl"
-                        />
-                        <div className="relative w-24 h-24 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center shadow-2xl">
-                          <Play className="w-10 h-10 text-white ml-1" fill="white" />
-                        </div>
-                      </motion.button>
-
-                      {/* Decorative text */}
-                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ delay: 0.5 }}
-                          className="text-center"
-                        >
-                          <p className="text-white/60 text-lg mb-32">Cliquez pour découvrir</p>
-                        </motion.div>
-                      </div>
-                    </>
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center">
-                      {/* Replace this with actual video embed */}
-                      <iframe
-                        className="w-full h-full"
-                        src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
-                        title="Wall Dream Réalisations"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      />
-                    </div>
-                  )}
-                </div>
+                {/* Video player */}
+                <video
+                  className="w-full h-full object-cover"
+                  controls
+                  autoPlay
+                  loop
+                  muted
+                  key={currentVideo}
+                >
+                  <source src={videos[currentVideo]} type="video/mp4" />
+                  Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
               </div>
+            </div>
+            
+            {/* Video selector dots */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-30">
+              {videos.map((_, index) => (
+                <motion.button
+                  key={index}
+                  onClick={() => setCurrentVideo(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    currentVideo === index
+                      ? "bg-secondary w-12"
+                      : "bg-white/50 hover:bg-white/80"
+                  }`}
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                />
+              ))}
             </div>
 
             {/* Floating particles effect */}

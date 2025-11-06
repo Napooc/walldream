@@ -10,12 +10,10 @@ import VideoShowcase from "@/components/VideoShowcase";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactInfo from "@/components/ContactInfo";
 import Footer from "@/components/Footer";
-import LoadingText from "@/components/LoadingText";
-
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 const Index = () => {
   return (
     <>
-      <LoadingText />
       <main className="min-h-screen">
         <Navbar />
         <Hero />
@@ -29,6 +27,7 @@ const Index = () => {
         <TestimonialsSection />
         <ContactInfo />
         <Footer />
+        <WhatsAppFloat />
       </main>
     </>
   );

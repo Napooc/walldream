@@ -83,8 +83,8 @@ const TeamSection = () => {
         }} transition={{
           duration: 0.6,
           delay: index * 0.1
-        }} className="group">
-              <div className="relative overflow-hidden rounded-3xl bg-card shadow-xl hover:shadow-2xl transition-all duration-500">
+        }} className="group h-full">
+              <div className="relative overflow-hidden rounded-3xl bg-card shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col">
                 {/* Gradient overlay on hover */}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
                 
@@ -111,7 +111,7 @@ const TeamSection = () => {
                 </div>
 
                 {/* Content */}
-                <div className="relative z-20 p-8">
+                <div className="relative z-20 p-8 flex-1 flex flex-col">
                   <motion.div initial={{
                 opacity: 0,
                 x: -20
@@ -139,11 +139,11 @@ const TeamSection = () => {
                 once: true
               }} transition={{
                 delay: 0.5 + index * 0.1
-              }} className="relative">
+              }} className="relative flex-1">
                     <div className="absolute -left-2 -top-2 text-6xl text-secondary/20 font-serif leading-none">
                       "
                     </div>
-                    <p className="leading-relaxed pl-6 italic text-neutral-400">
+                    <p className="leading-relaxed pl-6 italic text-muted-foreground">
                       {member.quote}
                     </p>
                   </motion.div>

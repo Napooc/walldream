@@ -114,10 +114,7 @@ const Navbar = () => {
           opacity: 1,
           x: 0
         }} className="hidden lg:flex items-center gap-4">
-            <Button variant="ghost" className={`rounded-full ${isScrolled ? "text-foreground" : "text-white hover:bg-white/20"}`}>
-              Connexion
-            </Button>
-            <Button className="bg-gradient-to-r from-secondary to-accent hover:opacity-90 text-primary rounded-full px-6 shadow-lg hover:shadow-xl transition-all hover:scale-105">
+            <Button className="bg-gradient-to-r from-secondary to-accent hover:opacity-90 text-white rounded-full px-6 shadow-lg hover:shadow-xl transition-all hover:scale-105">
               Devis Gratuit
             </Button>
           </motion.div>
@@ -146,8 +143,7 @@ const Navbar = () => {
               {link.name}
             </a>)}
           <div className="pt-4 space-y-3">
-            
-            <Button className="w-full bg-gradient-to-r from-secondary to-accent text-primary rounded-full">
+            <Button className="w-full bg-gradient-to-r from-secondary to-accent text-white rounded-full">
               Devis Gratuit
             </Button>
           </div>
