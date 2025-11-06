@@ -207,16 +207,7 @@ const Hero = () => {
       </motion.div>
 
       {/* Image Indicators */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-30 flex gap-3">
-        {heroImages.map((_, index) => <button key={index} onClick={() => setCurrentImage(index)} className="group relative">
-            <div className={`h-1 rounded-full transition-all duration-500 ${index === currentImage ? "w-16 bg-secondary" : "w-8 bg-white/30 hover:bg-white/50"}`} />
-            {index === currentImage && <motion.div layoutId="activeIndicator" className="absolute -top-2 -left-2 -right-2 -bottom-2 border-2 border-secondary rounded-full" transition={{
-          type: "spring",
-          stiffness: 300,
-          damping: 30
-        }} />}
-          </button>)}
-      </div>
+      
 
       {/* Scroll Indicator */}
       <motion.div initial={{
