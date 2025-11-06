@@ -87,44 +87,7 @@ const Hero = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-5xl">
             {/* Large Logo Display */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5, y: 40 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.1 }}
-              className="mb-12 flex justify-center lg:justify-start"
-            >
-              <motion.div
-                animate={{
-                  y: [0, -10, 0],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="relative group"
-              >
-                <motion.div
-                  animate={{
-                    scale: [1, 1.2, 1],
-                    rotate: [0, 180, 360],
-                  }}
-                  transition={{
-                    duration: 20,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  className="absolute inset-0 bg-gradient-to-r from-secondary via-accent to-secondary blur-3xl opacity-60"
-                />
-                <div className="relative w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full overflow-hidden shadow-2xl ring-4 ring-white/30 group-hover:ring-white/50 transition-all">
-                  <img
-                    src={logo}
-                    alt="Wall Dream Logo"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </motion.div>
-            </motion.div>
+            
             <motion.div initial={{
             opacity: 0,
             y: 60
